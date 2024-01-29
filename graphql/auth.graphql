@@ -1,0 +1,9 @@
+type Mutation {
+    signinUser(input: SigninUserInput!): User
+    signoutUser: Boolean @guard
+}
+
+input SigninUserInput {
+    email: String! @rules(apply: ["required", "email"])
+    password: String! @rules(apply: ["required", "min:8"])
+}
